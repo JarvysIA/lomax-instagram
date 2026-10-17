@@ -61,7 +61,7 @@ def html(body, script, extra_css=""):
 {script}
 </script></body></html>"""
 
-def render(name, page_html, duration, outdir="/home/claude/l5/reels", fps=FPS, only=None):
+def render(name, page_html, duration, outdir="/home/claude/l5/reels", fps=FPS, only=None, expr="render({t:.4f}); caps({t:.4f})"):
     from playwright.sync_api import sync_playwright
     fdir = os.path.join(outdir, name + "_frames")
     shutil.rmtree(fdir, ignore_errors=True); os.makedirs(fdir)
@@ -74,7 +74,7 @@ def render(name, page_html, duration, outdir="/home/claude/l5/reels", fps=FPS, o
         pg.goto("file://" + path); pg.wait_for_timeout(400); pg.evaluate("document.fonts.ready")
         for i in frames:
             t = i / fps
-            pg.evaluate(f"render({t:.4f}); caps({t:.4f})")
+            pg.evaluate(expr.format(t=t))
             pg.screenshot(path=os.path.join(fdir, f"f{i:05d}.jpg"), type="jpeg", quality=88)
         b.close()
     return fdir

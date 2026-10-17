@@ -10,12 +10,12 @@ def mix(out, duration, voices, music, music_start=0.0, music_vol=0.28, sfx=(), e
     i = 0
     vlabels = []
     for f, st in voices:
-        inputs += ["-i", AUD + f]
+        inputs += ["-i", f if f.startswith("/") else AUD + f]
         filters.append(f"[{i}:a]aresample=44100,adelay={int(st*1000)}|{int(st*1000)},volume=1.0[v{i}]")
         vlabels.append(f"[v{i}]"); i += 1
     filters.append(f"{''.join(vlabels)}amix=inputs={len(vlabels)}:normalize=0[voice]")
     filters.append(f"[voice]apad=whole_dur={duration},asplit=2[vo][sc]")
-    inputs += ["-i", AUD + music]
+    inputs += ["-i", music if music.startswith("/") else AUD + music]
     filters.append(f"[{i}:a]aresample=44100,atrim=start={music_start},asetpts=PTS-STARTPTS,volume={music_vol},"
                    f"afade=t=in:d=0.4,afade=t=out:st={duration-1.4}:d=1.4[m0]")
     filters.append("[m0][sc]sidechaincompress=threshold=0.04:ratio=6:attack=20:release=350[mus]")
