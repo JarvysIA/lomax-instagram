@@ -25,5 +25,5 @@ S.append(faq("ls_45_dono", "Seu WhatsApp tem dono?", "<span style='font-size:118
   "No Lomax, cada conversa tem um responsável e cada mensagem sai com o nome de quem atendeu.", theme="light"))
 
 if __name__ == "__main__":
-    render_pngs(S, "/home/claude/l5/out_s12")
+    render_pngs(S, "/home/claude/l5/out_s12", w=W, h=H)
     print(len(S))
