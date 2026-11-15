@@ -60,6 +60,10 @@ S.append(single("l13_s1_celular", "Sem computador?", "Conecta", "pelo celular.",
 ST.append(st.faq("ls_49_celular", "Preciso de computador<br>pra conectar?", "Não.",
   "Agora o WhatsApp conecta ao Lomax pelo celular, com um código. Sem QR Code e sem computador.", theme="light"))
 
+# Checagem de 15/11 (ideia de Datacrazy "23 pessoas pediram preço depois do expediente" e WeSales "23h40"): post único com o agente de IA.
+S.append(single("l13_s2_21h40", "Pediu preço", "às 21h40?", "Já tem resposta.",
+    "O agente de IA do Lomax responde na hora, com o orçamento no modelo da sua empresa. Entende até áudio. De manhã, a sua equipe só continua a conversa.", dark=False, size=110))
+
 if __name__ == "__main__":
     out = "/home/claude/l5/out13"
     render_pngs(S, out)
