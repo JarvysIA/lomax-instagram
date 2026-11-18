@@ -129,24 +129,29 @@ escrevem pelo webhook de testes e o que o sistema envia vai para um WhatsApp de 
 - As mensagens antigas da conversa (de ontem e de hoje) foram montadas no banco, com o nome de quem atendeu cada uma (Diego Martins e Juliana Alves).
 - Espera encurtada: "a conversa abrir" levou 2.2 s de verdade nos testes; no vídeo aparecem 1.2 s (a tela estava parada nesse intervalo).
 
-## 07_confirmacao_agendamento.mp4 — Confirmação de agendamento: sai sozinha no dia anterior
+## 07_confirmacao_agendamento.mp4 — Confirmação de agendamento: sai sozinha no dia anterior, e a resposta ao “1” também
 
-**28.9 s** · 1170×2532 · Clínica Vitalis · celular
+**25.5 s** · 1170×2532 · Clínica Vitalis · celular
 
 | tempo | o que acontece |
 |---|---|
-| 0:00,0–0:03,5 | começo — 3 s parados (na tela: agenda de hoje) |
-| 0:03,5–0:12,1 | toca em “próximo dia”: amanhã tem a limpeza da Beatriz, às 14h |
-| 0:12,1–0:14,1 | a confirmação saiu sozinha: o selo vira “Aguardando resposta” |
-| 0:14,1–0:16,0 | toca no horário da Beatriz: abre as opções do agendamento |
-| 0:16,0–0:23,6 | abre a conversa: a mensagem de confirmação, com o selo “Automática” |
-| 0:23,6–0:25,9 | a Beatriz responde “1”: consulta confirmada |
-| 0:25,9–0:28,9 | fim — 3 s parados |
+| 0:00,0–0:03,3 | começo — 3 s parados |
+| 0:03,3–0:03,7 | agenda de hoje |
+| 0:03,7–0:09,3 | toca em “próximo dia”: amanhã tem a limpeza da Beatriz, às 14h |
+| 0:09,3–0:10,8 | a confirmação saiu sozinha: o selo vira “Aguardando resposta” |
+| 0:10,8–0:12,4 | toca no horário da Beatriz: abre as opções do agendamento |
+| 0:12,4–0:17,9 | abre a conversa: a mensagem de confirmação, com o selo “Automática” |
+| 0:17,9–0:20,3 | a Beatriz responde “1” |
+| 0:20,3–0:22,5 | o sistema responde sozinho “Agendamento confirmado ✅”, com o selo “Automática” |
+| 0:22,5–0:25,5 | fim — 3 s parados |
 
 - A consulta está marcada para o dia seguinte ao da gravação; a confirmação é mandada pela automação de verdade, na véspera. Só o minuto do envio foi adiantado no banco (o padrão é às 10h do dia útil anterior).
 - O texto é o modelo de confirmação da empresa fictícia, com a data e a hora preenchidas pelo sistema.
 - A resposta “1” da cliente entra pelo webhook de testes.
-- Espera encurtada: "a rodada das automações mandar a confirmação" levou 38 s de verdade nos testes; no vídeo aparecem 5 s (a tela estava parada nesse intervalo).
+- O “Agendamento confirmado ✅” é a resposta automática do sistema ao “1” (texto padrão, que cada empresa pode trocar). De verdade ela sai de 20 a 40 segundos depois do “1”; no vídeo essa espera, com a tela parada, foi encurtada.
+- Espera encurtada: "a rodada das automações mandar a confirmação" levou 16 s de verdade nos testes; no vídeo aparecem 2.5 s (a tela estava parada nesse intervalo).
+- Espera encurtada: "a resposta da cliente chegar" levou 2 s de verdade nos testes; no vídeo aparecem 1.2 s (a tela estava parada nesse intervalo).
+- Espera encurtada: "a resposta automática sair" levou 25.5 s de verdade nos testes; no vídeo aparecem 2.4 s (a tela estava parada nesse intervalo).
 
 ## 08_conectar_pelo_codigo.mp4 — Conectar o WhatsApp pelo celular, com o código (sem QR)
 
